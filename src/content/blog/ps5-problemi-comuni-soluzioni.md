@@ -4,6 +4,8 @@ description: "La tua PlayStation 5 ha problemi? Ecco i guasti più frequenti e c
 date: 2024-04-18
 category: "Console"
 readingTime: "5 min"
+image: "/images/blog/cat-console.svg"
+imageAlt: "Riparazione PS5 PlayStation - Giolab Assemini"
 ---
 
 La PS5 è una console potente, ma non è immune da problemi tecnici. Ecco i guasti più comuni che vediamo in laboratorio.

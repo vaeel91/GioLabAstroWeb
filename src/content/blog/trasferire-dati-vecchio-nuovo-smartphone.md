@@ -4,6 +4,8 @@ description: "Guida completa al trasferimento dati tra smartphone, sia da iPhone
 date: 2024-11-05
 category: "Guide"
 readingTime: "6 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Trasferire dati tra smartphone - guida completa"
 ---
 
 Cambiare smartphone è emozionante, ma trasferire tutti i dati può sembrare complicato. Ecco come farlo facilmente.

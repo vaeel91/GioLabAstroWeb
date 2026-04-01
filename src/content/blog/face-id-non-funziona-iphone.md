@@ -4,6 +4,8 @@ description: "Il Face ID del tuo iPhone ha smesso di funzionare? Ecco le possibi
 date: 2024-10-01
 category: "iPhone"
 readingTime: "4 min"
+image: "/images/blog/cat-iphone.svg"
+imageAlt: "Riparazione Face ID iPhone - Giolab Assemini"
 ---
 
 Il Face ID è una funzione fondamentale degli iPhone moderni. Quando smette di funzionare, può essere molto frustrante.

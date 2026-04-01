@@ -4,6 +4,8 @@ description: "Il tuo Joy-Con si muove da solo? Scopri le cause del drift e come 
 date: 2024-06-08
 category: "Console"
 readingTime: "4 min"
+image: "/images/blog/cat-console.svg"
+imageAlt: "Riparazione Joy-Con drift Nintendo Switch - Giolab"
 ---
 
 Il Joy-Con drift è uno dei problemi più diffusi della Nintendo Switch. Il personaggio si muove da solo sullo schermo senza toccare lo stick analogico.

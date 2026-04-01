@@ -4,6 +4,8 @@ description: "Scopri i segnali che indicano che è ora di cambiare la batteria d
 date: 2024-02-10
 category: "iPhone"
 readingTime: "4 min"
+image: "/images/blog/cat-iphone.svg"
+imageAlt: "Sostituzione batteria iPhone - Giolab Assemini"
 ---
 
 La batteria è il cuore del tuo iPhone. Con il tempo, la sua capacità si riduce naturalmente. Ma quando è davvero il momento di sostituirla?

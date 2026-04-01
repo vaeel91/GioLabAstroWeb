@@ -4,6 +4,8 @@ description: "Il tuo smartphone non si carica? Scopri le cause più comuni dei p
 date: 2024-09-15
 category: "Riparazioni"
 readingTime: "4 min"
+image: "/images/blog/cat-riparazioni-generico.svg"
+imageAlt: "Riparazione connettore di ricarica smartphone - Giolab"
 ---
 
 Quando lo smartphone non si carica, il panico è immediato. Ma le cause possono essere semplici da risolvere.

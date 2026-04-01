@@ -26,6 +26,25 @@ function categorySlug(cat: string) {
   return cat.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'e');
 }
 
+const categoryImages: Record<string, string> = {
+  'iPhone': '/images/blog/cat-iphone.svg',
+  'Samsung': '/images/blog/cat-samsung.svg',
+  'Tablet': '/images/blog/cat-tablet.svg',
+  'PC & Mac': '/images/blog/cat-pc-mac.svg',
+  'Console': '/images/blog/cat-console.svg',
+  'Guide': '/images/blog/cat-guide.svg',
+  'Le Nostre Riparazioni': '/images/blog/cat-riparazioni.svg',
+  'Riparazioni': '/images/blog/cat-riparazioni-generico.svg',
+};
+
+function getPostImage(post: any) {
+  return post.data.image || categoryImages[post.data.category] || '/images/blog/cat-guide.svg';
+}
+
+function getPostImageAlt(post: any) {
+  return post.data.imageAlt || `${post.data.title} - Giolab Riparazioni Assemini`;
+}
+
 const jsonLdBreadcrumb = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -86,8 +105,15 @@ const jsonLdBreadcrumb = {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map(post => (
           <article class="card group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
-            <div class="bg-giolab-gray rounded-lg h-48 flex items-center justify-center mb-4 overflow-hidden">
-              <svg class="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <div class="h-48 overflow-hidden">
+              <img
+                src={getPostImage(post)}
+                alt={getPostImageAlt(post)}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                width="400"
+                height="200"
+              />
             </div>
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold bg-blue-50 text-giolab-blue px-3 py-1 rounded-full">{post.data.category}</span>

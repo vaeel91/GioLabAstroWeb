@@ -4,6 +4,8 @@ description: "Guida completa alle migliori pellicole protettive e cover per mant
 date: 2024-01-15
 category: "Guide"
 readingTime: "5 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Protezione schermo smartphone - guida pellicole e cover"
 ---
 
 Lo schermo è la parte più vulnerabile del tuo smartphone. Una caduta accidentale può significare una riparazione costosa. Ecco come prevenire i danni.

@@ -4,6 +4,8 @@ description: "Il tuo iPhone è caduto in acqua? Segui questa guida per aumentare
 date: 2024-04-02
 category: "iPhone"
 readingTime: "4 min"
+image: "/images/blog/cat-iphone.svg"
+imageAlt: "iPhone caduto in acqua - recupero danni da liquido Giolab"
 ---
 
 Un iPhone caduto in acqua è un'emergenza. Le azioni che compi nei primi minuti sono cruciali per il suo salvataggio.

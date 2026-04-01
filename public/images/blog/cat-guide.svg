@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a56db"/>
+      <stop offset="100%" style="stop-color:#1340a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- Book / guide icon -->
+  <rect x="280" y="80" width="240" height="240" rx="8" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="3"/>
+  <line x1="400" y1="80" x2="400" y2="320" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <!-- Left page lines -->
+  <rect x="305" y="120" width="70" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="305" y="136" width="60" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="305" y="148" width="75" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="305" y="160" width="50" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="305" y="180" width="70" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="305" y="196" width="65" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="305" y="208" width="75" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <!-- Right page - illustration suggestion -->
+  <rect x="420" y="120" width="80" height="60" rx="6" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
+  <rect x="420" y="196" width="80" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="420" y="208" width="60" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <rect x="420" y="220" width="70" height="4" rx="2" fill="rgba(255,255,255,0.1)"/>
+  <!-- Lightbulb icon -->
+  <circle cx="460" cy="145" r="12" fill="none" stroke="rgba(249,115,22,0.6)" stroke-width="2"/>
+  <line x1="460" y1="157" x2="460" y2="165" stroke="rgba(249,115,22,0.4)" stroke-width="2"/>
+  <path d="M454 140 L460 130 L466 140" fill="none" stroke="rgba(249,115,22,0.5)" stroke-width="1.5"/>
+  <!-- Circuit decorations -->
+  <g opacity="0.08" stroke="white" stroke-width="1" fill="none">
+    <path d="M50 50 h40 v30 h30 v-20 h50"/>
+    <path d="M50 350 h60 v-40 h40 v20 h30"/>
+    <path d="M650 80 h50 v50 h40"/>
+    <path d="M680 300 h40 v-30 h30"/>
+    <circle cx="90" cy="50" r="3" fill="white"/>
+    <circle cx="170" cy="60" r="3" fill="white"/>
+    <circle cx="700" cy="80" r="3" fill="white"/>
+  </g>
+</svg>

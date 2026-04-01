@@ -4,6 +4,8 @@ description: "Non tutti i caricatori sono uguali. Scopri come scegliere quello g
 date: 2024-06-25
 category: "Guide"
 readingTime: "4 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Come scegliere il caricatore giusto per smartphone"
 ---
 
 Usare un caricatore sbagliato può danneggiare la batteria del tuo smartphone nel tempo. Ecco come fare la scelta giusta.

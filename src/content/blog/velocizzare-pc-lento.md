@@ -4,6 +4,8 @@ description: "Il tuo computer è diventato lento? Scopri 7 soluzioni pratiche pe
 date: 2024-03-20
 category: "PC & Mac"
 readingTime: "6 min"
+image: "/images/blog/cat-pc-mac.svg"
+imageAlt: "Velocizzare PC lento - upgrade e assistenza Giolab"
 ---
 
 Un PC lento è frustrante. Prima di pensare a comprarne uno nuovo, prova queste soluzioni che possono fare una grande differenza.

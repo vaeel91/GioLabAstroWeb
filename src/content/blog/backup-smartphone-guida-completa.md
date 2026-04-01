@@ -4,6 +4,8 @@ description: "Impara come fare il backup del tuo smartphone in modo sicuro. Guid
 date: 2024-05-22
 category: "Guide"
 readingTime: "6 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Backup smartphone iPhone e Android - guida completa"
 ---
 
 Perdere foto, contatti e messaggi è l'incubo di tutti. Ecco come proteggere i tuoi dati con un backup regolare.

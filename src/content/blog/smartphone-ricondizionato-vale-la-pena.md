@@ -4,6 +4,8 @@ description: "Tutto quello che devi sapere prima di acquistare uno smartphone ri
 date: 2024-08-30
 category: "Guide"
 readingTime: "5 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Smartphone ricondizionato - guida all'acquisto"
 ---
 
 Gli smartphone ricondizionati stanno diventando sempre più popolari. Ma convengono davvero? Ecco la nostra analisi.

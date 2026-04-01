@@ -4,6 +4,8 @@ description: "Scopri le differenze tra ricambi originali e compatibili per smart
 date: 2024-05-05
 category: "Guide"
 readingTime: "4 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Ricambi originali vs compatibili - guida alla scelta"
 ---
 
 Una delle domande più frequenti che riceviamo è: "Usate ricambi originali?". La risposta merita una spiegazione approfondita.

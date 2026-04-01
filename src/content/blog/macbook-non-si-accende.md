@@ -4,6 +4,8 @@ description: "Il tuo MacBook non si accende? Ecco le possibili cause e le soluzi
 date: 2024-08-12
 category: "PC & Mac"
 readingTime: "5 min"
+image: "/images/blog/cat-pc-mac.svg"
+imageAlt: "MacBook non si accende - diagnosi e riparazione Giolab"
 ---
 
 Un MacBook che non si accende può avere cause molto diverse, alcune risolvibili a casa e altre che richiedono assistenza professionale.

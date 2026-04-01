@@ -4,6 +4,8 @@ description: "Guida alla manutenzione della tua Xbox Series X per evitare surris
 date: 2024-10-18
 category: "Console"
 readingTime: "4 min"
+image: "/images/blog/cat-console.svg"
+imageAlt: "Manutenzione Xbox Series X - pulizia e riparazione Giolab"
 ---
 
 La Xbox Series X è una console potente che genera molto calore. Una corretta manutenzione è essenziale per la sua longevità.

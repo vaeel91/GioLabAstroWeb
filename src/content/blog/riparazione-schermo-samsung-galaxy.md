@@ -4,6 +4,8 @@ description: "Tutto quello che devi sapere sulla riparazione dello schermo AMOLE
 date: 2024-03-05
 category: "Samsung"
 readingTime: "5 min"
+image: "/images/blog/cat-samsung.svg"
+imageAlt: "Riparazione schermo AMOLED Samsung Galaxy - Giolab Assemini"
 ---
 
 I display AMOLED dei Samsung Galaxy offrono colori brillanti e neri profondi, ma quando si rompono la riparazione richiede competenza specifica.

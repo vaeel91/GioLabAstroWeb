@@ -18,6 +18,8 @@ tools:
   - "Multimetro digitale"
   - "Alimentatore da banco"
   - "Camera termica"
+image: "/images/blog/cat-riparazioni.svg"
+imageAlt: "Microsaldatura scheda madre iPhone 13 - caso studio Giolab"
 ---
 
 ## Il problema del cliente

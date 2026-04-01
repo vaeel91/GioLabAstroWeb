@@ -4,6 +4,8 @@ description: "Schermo rotto o iPad lento? Scopri quando conviene riparare il tuo
 date: 2024-07-10
 category: "Tablet"
 readingTime: "5 min"
+image: "/images/blog/cat-tablet.svg"
+imageAlt: "Riparazione iPad e tablet - Giolab Assemini"
 ---
 
 L'iPad è un dispositivo durevole, ma non è indistruttibile. Quando si rompe, la domanda è: conviene ripararlo?

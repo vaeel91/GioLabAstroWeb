@@ -4,6 +4,8 @@ description: "Scopri le abitudini quotidiane che possono allungare significativa
 date: 2024-07-28
 category: "Guide"
 readingTime: "4 min"
+image: "/images/blog/cat-guide.svg"
+imageAlt: "Allungare vita batteria smartphone - 5 consigli pratici"
 ---
 
 La batteria del tuo smartphone si degrada nel tempo, ma con alcune accortezze puoi rallentare significativamente questo processo.
