@@ -1,5 +1,7 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
+import CaseStudySummary from '@/components/CaseStudySummary.astro';
+import BeforeAfter from '@/components/BeforeAfter.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -11,12 +13,19 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+
+const isCaseStudy = post.data.category === 'Le Nostre Riparazioni';
+const tocHeadings = headings.filter(h => h.depth === 2);
+
+function categorySlug(cat: string) {
+  return cat.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'e');
+}
 
 const jsonLdArticle = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: post.data.title,
+  '@type': isCaseStudy ? 'HowTo' : 'Article',
+  ...(isCaseStudy ? { name: post.data.title } : { headline: post.data.title }),
   description: post.data.description,
   datePublished: post.data.date.toISOString(),
   dateModified: (post.data.updated || post.data.date).toISOString(),
@@ -33,6 +42,7 @@ const jsonLdArticle = {
     '@type': 'WebPage',
     '@id': `https://giolabriparazioni.it/blog/${post.id}`,
   },
+  ...(isCaseStudy && post.data.repairTime ? { totalTime: post.data.repairTime } : {}),
 };
 
 const jsonLdBreadcrumb = {
@@ -41,7 +51,8 @@ const jsonLdBreadcrumb = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://giolabriparazioni.it/' },
     { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://giolabriparazioni.it/blog' },
-    { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://giolabriparazioni.it/blog/${post.id}` },
+    { '@type': 'ListItem', position: 3, name: post.data.category, item: `https://giolabriparazioni.it/blog/categoria/${categorySlug(post.data.category)}` },
+    { '@type': 'ListItem', position: 4, name: post.data.title, item: `https://giolabriparazioni.it/blog/${post.id}` },
   ],
 };
 ---
@@ -61,25 +72,40 @@ const jsonLdBreadcrumb = {
   <article>
     <!-- Hero -->
     <section class="bg-gradient-to-br from-giolab-blue to-giolab-blue-dark text-white">
-      <div class="section-padding text-center max-w-4xl mx-auto">
+      <div class="section-padding text-center max-w-4xl mx-auto !pb-12 md:!pb-16">
         <nav class="text-sm text-blue-200 mb-6" aria-label="Breadcrumb">
           <a href="/" class="hover:text-white">Home</a>
           <span class="mx-2">/</span>
           <a href="/blog" class="hover:text-white">Blog</a>
           <span class="mx-2">/</span>
-          <span class="text-white">{post.data.title}</span>
+          <a href={`/blog/categoria/${categorySlug(post.data.category)}`} class="hover:text-white">{post.data.category}</a>
         </nav>
+
         <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="text-xs font-semibold bg-white/20 px-3 py-1 rounded-full">{post.data.category}</span>
+          <a href={`/blog/categoria/${categorySlug(post.data.category)}`} class="text-xs font-semibold bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition-colors">
+            {post.data.category}
+          </a>
           {post.data.readingTime && (
             <span class="text-xs text-blue-200">{post.data.readingTime}</span>
           )}
+          {post.data.difficulty && (
+            <span class:list={[
+              'text-xs font-semibold px-3 py-1 rounded-full',
+              post.data.difficulty === 'Bassa' ? 'bg-green-500/20 text-green-200' :
+              post.data.difficulty === 'Media' ? 'bg-yellow-500/20 text-yellow-200' :
+              'bg-red-500/20 text-red-200'
+            ]}>
+              {post.data.difficulty}
+            </span>
+          )}
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold !text-white mb-4">{post.data.title}</h1>
-        <p class="text-blue-100 text-lg">{post.data.description}</p>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold !text-white mb-4 leading-tight">{post.data.title}</h1>
+        <p class="text-blue-100 text-lg max-w-2xl mx-auto">{post.data.description}</p>
+
         <div class="mt-6 text-sm text-blue-200">
           <span>Di <strong class="text-white">Stefano Giordano</strong></span>
-          <span class="mx-2">·</span>
+          <span class="mx-2">&middot;</span>
           <time datetime={post.data.date.toISOString()}>
             {post.data.date.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
@@ -87,23 +113,91 @@ const jsonLdBreadcrumb = {
       </div>
     </section>
 
-    <!-- Content -->
+    <!-- Content Area -->
     <section>
-      <div class="max-w-3xl mx-auto px-4 py-12 md:py-16">
-        <div class="prose prose-lg prose-gray max-w-none prose-headings:text-giolab-dark prose-a:text-giolab-blue prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
-          <Content />
+      <div class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+        <div class:list={['flex flex-col gap-10', isCaseStudy && 'lg:flex-row']}>
+
+          <!-- Main Content -->
+          <div class="flex-1 min-w-0">
+            {/* Table of Contents */}
+            {tocHeadings.length > 2 && (
+              <nav class="bg-giolab-gray rounded-xl p-5 mb-8" aria-label="Indice dei contenuti">
+                <p class="font-bold text-giolab-dark mb-3 text-sm uppercase tracking-wide">Indice</p>
+                <ol class="space-y-2">
+                  {tocHeadings.map((h, i) => (
+                    <li>
+                      <a href={`#${h.slug}`} class="text-sm text-gray-600 hover:text-giolab-blue transition-colors flex items-center gap-2">
+                        <span class="text-xs text-gray-400 font-mono w-5">{String(i + 1).padStart(2, '0')}</span>
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+
+            {/* Before/After Slider */}
+            {isCaseStudy && (
+              <BeforeAfter
+                beforeImage={post.data.beforeImage}
+                beforeAlt={post.data.beforeImageAlt}
+                afterImage={post.data.afterImage}
+                afterAlt={post.data.afterImageAlt}
+              />
+            )}
+
+            {/* Article Body */}
+            <div class="prose-blog">
+              <Content />
+            </div>
+
+            {/* Bottom CTA */}
+            <div class="mt-10 bg-gradient-to-r from-giolab-blue to-giolab-blue-dark rounded-2xl p-6 md:p-8 text-white text-center">
+              <h3 class="text-xl md:text-2xl font-bold !text-white mb-2">
+                {isCaseStudy ? 'Hai un problema simile?' : 'Hai bisogno di assistenza?'}
+              </h3>
+              <p class="text-blue-100 text-sm mb-5">Contattaci per una diagnosi gratuita e senza impegno.</p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="/contatti" class="btn-primary text-sm">Richiedi un Preventivo</a>
+                <a href="https://wa.me/393406970686" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-sm">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Scrivici su WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar (Case Studies only) -->
+          {isCaseStudy && (
+            <div class="lg:w-80 flex-shrink-0">
+              <div class="lg:sticky lg:top-24">
+                <CaseStudySummary
+                  device={post.data.device}
+                  fault={post.data.fault}
+                  difficulty={post.data.difficulty}
+                  repairTime={post.data.repairTime}
+                  components={post.data.components}
+                  tools={post.data.tools}
+                  warranty={post.data.warranty}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
 
     <!-- Back to blog -->
     <section class="border-t border-gray-200">
-      <div class="max-w-3xl mx-auto px-4 py-8 flex justify-between items-center">
-        <a href="/blog" class="text-giolab-blue font-semibold hover:underline flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+        <a href="/blog" class="text-giolab-blue font-semibold hover:underline flex items-center gap-2 text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
           Torna al Blog
         </a>
-        <a href="/contatti" class="btn-primary text-sm">Richiedi Preventivo</a>
+        <a href={`/blog/categoria/${categorySlug(post.data.category)}`} class="text-sm text-gray-500 hover:text-giolab-blue transition-colors">
+          Altri articoli: {post.data.category}
+        </a>
       </div>
     </section>
   </article>

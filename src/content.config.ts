@@ -13,6 +13,18 @@ const blog = defineCollection({
     imageAlt: z.string().optional(),
     readingTime: z.string().optional(),
     draft: z.boolean().default(false),
+    // Case study fields
+    device: z.string().optional(),
+    fault: z.string().optional(),
+    difficulty: z.enum(['Bassa', 'Media', 'Alta']).optional(),
+    repairTime: z.string().optional(),
+    components: z.array(z.string()).optional(),
+    tools: z.array(z.string()).optional(),
+    warranty: z.string().optional(),
+    beforeImage: z.string().optional(),
+    beforeImageAlt: z.string().optional(),
+    afterImage: z.string().optional(),
+    afterImageAlt: z.string().optional(),
   }),
 });
 

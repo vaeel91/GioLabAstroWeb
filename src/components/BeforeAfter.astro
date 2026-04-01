@@ -1,0 +1,63 @@
+---
+interface Props {
+  beforeImage?: string;
+  beforeAlt?: string;
+  afterImage?: string;
+  afterAlt?: string;
+}
+
+const { beforeImage, afterImage, beforeAlt = 'Prima della riparazione', afterAlt = 'Dopo la riparazione' } = Astro.props;
+
+const hasImages = beforeImage && afterImage;
+---
+
+{hasImages && (
+  <div class="before-after-slider relative overflow-hidden rounded-xl border border-gray-200 select-none my-8" style="aspect-ratio: 16/10;">
+    <img src={afterImage} alt={afterAlt} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+    <div class="before-clip absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+      <img src={beforeImage} alt={beforeAlt} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+    </div>
+    <div class="slider-handle absolute top-0 bottom-0 flex items-center" style="left: 50%; transform: translateX(-50%);">
+      <div class="w-0.5 h-full bg-white shadow-lg"></div>
+      <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-ew-resize">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+      </div>
+    </div>
+    <div class="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2.5 py-1 rounded-full">Prima</div>
+    <div class="absolute top-3 right-3 bg-giolab-blue text-white text-xs font-semibold px-2.5 py-1 rounded-full">Dopo</div>
+  </div>
+)}
+
+{hasImages && (
+  <script>
+    document.querySelectorAll('.before-after-slider').forEach(slider => {
+      const handle = slider.querySelector('.slider-handle') as HTMLElement;
+      const clip = slider.querySelector('.before-clip') as HTMLElement;
+      let isDragging = false;
+
+      function updatePosition(x: number) {
+        const rect = slider.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(2, Math.min(98, pct));
+        clip.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left = `${pct}%`;
+      }
+
+      handle.addEventListener('mousedown', () => isDragging = true);
+      handle.addEventListener('touchstart', () => isDragging = true, { passive: true });
+      document.addEventListener('mouseup', () => isDragging = false);
+      document.addEventListener('touchend', () => isDragging = false);
+
+      slider.addEventListener('mousemove', (e) => {
+        if (isDragging) updatePosition((e as MouseEvent).clientX);
+      });
+      slider.addEventListener('touchmove', (e) => {
+        if (isDragging) updatePosition((e as TouchEvent).touches[0].clientX);
+      }, { passive: true });
+
+      slider.addEventListener('click', (e) => {
+        updatePosition((e as MouseEvent).clientX);
+      });
+    });
+  </script>
+)}
