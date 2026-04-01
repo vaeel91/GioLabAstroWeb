@@ -11,16 +11,16 @@ const jsonLdBreadcrumb = {
 };
 
 const milestones = [
-  { year: '2015', title: 'Gli Inizi', desc: 'Stefano Giordano inizia a riparare dispositivi elettronici per passione, aiutando amici e conoscenti.' },
-  { year: '2018', title: 'Nasce Giolab', desc: 'La passione diventa professione. Apre il primo laboratorio ad Assemini, in provincia di Cagliari.' },
-  { year: '2020', title: 'Crescita e Specializzazione', desc: 'Giolab si specializza nelle micro-saldature e riparazioni di schede madri, ampliando la gamma di servizi.' },
-  { year: '2023', title: 'Centro di Riferimento', desc: 'Con oltre 150 recensioni a 5 stelle su Google, Giolab diventa il punto di riferimento per le riparazioni nell\'area metropolitana di Cagliari.' },
+  { year: '2015', title: 'Gli Inizi', desc: 'Stefano inizia a riparare dispositivi per passione, studiando elettronica e microsaldatura in autonomia.' },
+  { year: '2018', title: 'Nasce Giolab', desc: 'La passione diventa professione. Apre il laboratorio ad Assemini, punto di riferimento per l\'area metropolitana di Cagliari.' },
+  { year: '2020', title: 'Specializzazione', desc: 'Giolab si specializza nelle microsaldature e riparazioni di schede madri, risolvendo problemi che altri centri rifiutano.' },
+  { year: '2024', title: 'Centro di Riferimento', desc: 'Con oltre 150 recensioni a 5 stelle su Google, Giolab è il tecnico di fiducia per Assemini, Decimomannu, Elmas, Uta e tutta la provincia di Cagliari.' },
 ];
 ---
 
 <MainLayout
-  title="Chi Siamo"
-  description="Scopri la storia di Giolab Riparazioni e di Stefano Giordano. Dal 2018 ripariamo smartphone, tablet e PC ad Assemini con passione e professionalità."
+  title="Chi Siamo | Giolab Riparazioni Assemini"
+  description="Scopri Giolab Riparazioni: laboratorio indipendente ad Assemini specializzato in riparazione smartphone, microsaldatura e assistenza PC. Fondato da Stefano Giordano."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
@@ -35,7 +35,7 @@ const milestones = [
         <span class="text-white">Chi Siamo</span>
       </nav>
       <h1 class="text-4xl md:text-5xl font-extrabold !text-white mb-4">Chi Siamo</h1>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">La passione per la tecnologia e la voglia di risolvere problemi: ecco cosa ci guida ogni giorno.</p>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">Un laboratorio indipendente dove competenza tecnica e rapporto diretto con il cliente fanno la differenza.</p>
     </div>
   </section>
 
@@ -45,38 +45,44 @@ const milestones = [
       <div class="max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row gap-10 items-center mb-16">
           <div class="w-48 h-48 bg-giolab-gray rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="text-7xl">👨‍🔧</span>
+            <svg class="w-24 h-24 text-giolab-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
           </div>
           <div>
             <h2 class="text-2xl md:text-3xl font-bold mb-4">Stefano Giordano</h2>
             <p class="text-lg text-gray-500 font-medium mb-3">Fondatore & Tecnico Specializzato</p>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Tutto è nato dalla curiosità di smontare e capire come funzionano i dispositivi elettronici. Quella curiosità si è trasformata in una competenza tecnica che oggi mi permette di risolvere anche i problemi più complessi, dalle micro-saldature sulle schede madri alla sostituzione dei componenti più delicati.
+              Ho iniziato smontando dispositivi per capire come funzionano. Quella curiosità si è trasformata in competenza tecnica: oggi risolvo anche i problemi più complessi, dalle microsaldature BGA alla diagnosi avanzata su scheda madre.
             </p>
             <p class="text-gray-600 leading-relaxed">
-              In Giolab ogni dispositivo viene trattato con la massima cura, come se fosse il mio. Il mio obiettivo è offrire un servizio onesto, trasparente e di altissima qualità a un prezzo giusto.
+              In Giolab ogni dispositivo viene seguito dal tecnico dall'inizio alla fine. Niente passaggi di mano, niente sorprese. Il mio obiettivo è semplice: un servizio onesto, trasparente e di qualità a un prezzo giusto.
             </p>
           </div>
         </div>
 
         <!-- Philosophy -->
         <div class="bg-giolab-gray rounded-2xl p-8 md:p-12 mb-16">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">La Nostra Filosofia</h2>
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center">Come Lavoriamo</h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="text-center">
-              <div class="text-4xl mb-4">🎯</div>
-              <h3 class="font-bold text-lg mb-2">Precisione</h3>
-              <p class="text-sm text-gray-600">Ogni riparazione è eseguita con strumenti professionali e massima attenzione ai dettagli.</p>
+              <div class="inline-flex items-center justify-center w-14 h-14 bg-white rounded-xl text-giolab-blue mb-4 shadow-sm">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Diagnosi Accurata</h3>
+              <p class="text-sm text-gray-600">Prima di toccare qualsiasi cosa, capiamo esattamente qual è il problema. Diagnosi gratuita, sempre.</p>
             </div>
             <div class="text-center">
-              <div class="text-4xl mb-4">💬</div>
-              <h3 class="font-bold text-lg mb-2">Trasparenza</h3>
-              <p class="text-sm text-gray-600">Preventivo gratuito e comunicazione chiara. Sai sempre cosa facciamo e quanto costerà.</p>
+              <div class="inline-flex items-center justify-center w-14 h-14 bg-white rounded-xl text-giolab-blue mb-4 shadow-sm">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Preventivo Chiaro</h3>
+              <p class="text-sm text-gray-600">Ti comunichiamo il costo esatto prima di procedere. Se non conviene riparare, te lo diciamo.</p>
             </div>
             <div class="text-center">
-              <div class="text-4xl mb-4">♻️</div>
-              <h3 class="font-bold text-lg mb-2">Sostenibilità</h3>
-              <p class="text-sm text-gray-600">Riparare è meglio che buttare. Allunghiamo la vita ai tuoi dispositivi riducendo i rifiuti elettronici.</p>
+              <div class="inline-flex items-center justify-center w-14 h-14 bg-white rounded-xl text-giolab-blue mb-4 shadow-sm">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h3 class="font-bold text-lg mb-2">Garanzia Reale</h3>
+              <p class="text-sm text-gray-600">Ogni riparazione è coperta da garanzia fino a 12 mesi. Se c'è un problema, lo risolviamo.</p>
             </div>
           </div>
         </div>

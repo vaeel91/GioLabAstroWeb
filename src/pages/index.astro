@@ -2,28 +2,46 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 
 const services = [
-  { icon: '📱', title: 'Riparazione Smartphone', desc: 'iPhone, Samsung, Huawei e tutti i brand. Sostituzione schermo, batteria, connettore di ricarica e altro.' },
-  { icon: '📟', title: 'Riparazione Tablet', desc: 'iPad, Samsung Galaxy Tab e tablet di ogni marca. Interventi rapidi e garantiti.' },
-  { icon: '💻', title: 'Riparazione PC & Mac', desc: 'Notebook e desktop. Formattazione, upgrade SSD/RAM, riparazione hardware e software.' },
-  { icon: '🎮', title: 'Riparazione Console', desc: 'PlayStation, Xbox, Nintendo Switch. Pulizia, sostituzione componenti e aggiornamenti.' },
-  { icon: '🔋', title: 'Sostituzione Batteria', desc: 'Batterie originali e certificate per tutti i dispositivi. Intervento in giornata.' },
-  { icon: '🛡️', title: 'Pellicole & Cover', desc: 'Protezioni in vetro temperato, pellicole idrogel e cover di qualità per il tuo device.' },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
+    title: 'Smartphone & Tablet',
+    desc: 'Sostituzione display, batterie e connettori. Spesso ripariamo il tuo dispositivo in giornata.',
+    link: '/servizi#iphone',
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>`,
+    title: 'Microsaldatura & Scheda Madre',
+    desc: 'Risolviamo problemi complessi su scheda madre che altri centri non gestiscono. Diagnosi accurata e riparazioni di precisione.',
+    link: '/servizi#pc',
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: 'PC & Mac',
+    desc: 'Assistenza hardware e software. Upgrade SSD, pulizia interna e risoluzione blocchi.',
+    link: '/servizi#pc',
+  },
+  {
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+    title: 'Console',
+    desc: 'Riparazione e manutenzione per PlayStation, Xbox e Nintendo Switch.',
+    link: '/servizi#console',
+  },
 ];
 
 const testimonials = [
-  { name: 'Marco R.', text: 'Servizio eccellente! Schermo iPhone riparato in meno di un\'ora. Professionalità e cortesia al top.', rating: 5 },
-  { name: 'Sara M.', text: 'Ho portato il mio MacBook con problemi alla scheda madre. Risolto in 2 giorni e a un prezzo onesto.', rating: 5 },
-  { name: 'Luca P.', text: 'La mia PS5 non leggeva i dischi. Riparata perfettamente. Consiglio Giolab a tutti!', rating: 5 },
-  { name: 'Anna G.', text: 'Batteria Samsung sostituita in 30 minuti. Velocissimi e molto gentili. Tornerò sicuramente!', rating: 5 },
+  { name: 'Marco R.', text: 'Schermo iPhone riparato in meno di un\'ora. Professionalità e cortesia al top. Consigliato!', rating: 5 },
+  { name: 'Sara M.', text: 'MacBook con problemi alla scheda madre, dato per spacciato altrove. Stefano lo ha risolto in 2 giorni. Onesto e competente.', rating: 5 },
+  { name: 'Luca P.', text: 'PS5 che non leggeva i dischi. Riparata perfettamente e a un prezzo giusto. Punto di riferimento ad Assemini.', rating: 5 },
+  { name: 'Anna G.', text: 'Batteria Samsung sostituita in 30 minuti. Servizio veloce, preciso e garantito. Tornerò sicuramente!', rating: 5 },
 ];
 
 const faqs = [
-  { q: 'Quanto tempo ci vuole per una riparazione?', a: 'La maggior parte delle riparazioni viene completata in giornata. Per interventi più complessi, come riparazioni su scheda madre, possono servire 2-3 giorni lavorativi.' },
-  { q: 'Offrite garanzia sulle riparazioni?', a: 'Sì, tutte le nostre riparazioni sono coperte da garanzia. La durata varia da 3 a 12 mesi a seconda del tipo di intervento.' },
-  { q: 'Utilizzate ricambi originali?', a: 'Utilizziamo ricambi originali o di qualità equivalente certificata, sempre garantendo le massime prestazioni del dispositivo.' },
-  { q: 'È necessario prendere appuntamento?', a: 'No, puoi venire direttamente nel nostro laboratorio durante gli orari di apertura. Per interventi complessi, ti consigliamo di contattarci prima su WhatsApp.' },
-  { q: 'Fate preventivi gratuiti?', a: 'Sì, la diagnosi e il preventivo sono sempre gratuiti e senza impegno. Contattaci su WhatsApp o vieni in negozio.' },
-  { q: 'Dove si trova il laboratorio?', a: 'Siamo in Via Carmine 20, 09032 Assemini (CA). Facilmente raggiungibile da Cagliari e da tutta l\'area metropolitana.' },
+  { q: 'Quanto tempo ci vuole per una riparazione?', a: 'La maggior parte delle riparazioni viene completata in giornata. Per interventi più complessi come microsaldature su scheda madre, possono servire 2-3 giorni lavorativi.' },
+  { q: 'Offrite garanzia sulle riparazioni?', a: 'Sì. Tutte le riparazioni sono coperte da garanzia fino a 12 mesi, a seconda del tipo di intervento.' },
+  { q: 'Utilizzate ricambi originali?', a: 'Utilizziamo ricambi originali o di qualità equivalente certificata. Ti comunichiamo sempre in anticipo quale tipo di ricambio useremo.' },
+  { q: 'È necessario prendere appuntamento?', a: 'No. Puoi venire direttamente in laboratorio durante gli orari di apertura. Per interventi complessi, ti consigliamo di contattarci prima su WhatsApp.' },
+  { q: 'Fate preventivi gratuiti?', a: 'Sì. Diagnosi e preventivo sono sempre gratuiti e senza impegno.' },
+  { q: 'Dove si trova il laboratorio?', a: 'Siamo in Via Carmine 20, 09032 Assemini (CA). Facilmente raggiungibile da Cagliari, Decimomannu, Elmas, Uta e tutta l\'area metropolitana.' },
 ];
 
 const jsonLdLocalBusiness = {
@@ -31,7 +49,7 @@ const jsonLdLocalBusiness = {
   '@type': 'LocalBusiness',
   '@id': 'https://giolabriparazioni.it/#business',
   name: 'Giolab Riparazioni',
-  description: 'Centro riparazioni specializzato in smartphone, tablet, PC e console ad Assemini.',
+  description: 'Riparazione smartphone ad Assemini con garanzia di 12 mesi. Assistenza iPhone, Samsung, PC e console. Esperti in microsaldatura e diagnosi scheda madre.',
   url: 'https://giolabriparazioni.it',
   telephone: '+393406970686',
   email: 'Giolabassemini@gmail.com',
@@ -102,11 +120,13 @@ const jsonLdBreadcrumb = {
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://giolabriparazioni.it/' },
   ],
 };
+
+const whatsappSvg = `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
 ---
 
 <MainLayout
-  title="Giolab Riparazioni"
-  description="Centro riparazioni smartphone, tablet, PC e console ad Assemini (CA). Riparazione iPhone, Samsung, Mac e PlayStation. Preventivi gratuiti, interventi rapidi e garantiti."
+  title="Giolab Riparazioni Assemini | Assistenza iPhone, Smartphone e PC | Garanzia 12 Mesi"
+  description="Riparazione smartphone ad Assemini con garanzia di 12 mesi. Assistenza iPhone, Samsung, PC e console. Esperti in microsaldatura e diagnosi scheda madre. Preventivi gratuiti!"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdLocalBusiness)} />
@@ -123,25 +143,25 @@ const jsonLdBreadcrumb = {
     <div class="relative section-padding text-center md:text-left md:flex md:items-center md:gap-12">
       <div class="flex-1">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold !text-white leading-tight mb-6">
-          Riparazione Smartphone<br class="hidden md:block" /> e Dispositivi ad <span class="text-giolab-orange">Assemini</span>
+          Riparazione Smartphone, PC e Console ad <span class="text-giolab-orange">Assemini</span>
         </h1>
         <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl">
-          Giolab è il tuo centro di fiducia per riparazioni rapide e garantite di iPhone, Samsung, tablet, PC e console. Preventivi gratuiti e interventi in giornata.
+          Interventi rapidi, preventivi gratuiti e garanzia di 12 mesi su ogni riparazione. Ci occupiamo di tutto, dalla sostituzione dello schermo alla microsaldatura su scheda madre.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
           <a href="/contatti" class="btn-primary text-lg">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-            Richiedi Preventivo
+            Richiedi un Preventivo
           </a>
           <a href="https://wa.me/393406970686" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-lg">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <Fragment set:html={whatsappSvg} />
             Scrivici su WhatsApp
           </a>
         </div>
       </div>
       <div class="hidden lg:flex flex-1 justify-center mt-12 md:mt-0">
         <div class="w-72 h-72 bg-white/10 rounded-3xl backdrop-blur-sm flex items-center justify-center border border-white/20">
-          <span class="text-8xl">🔧</span>
+          <svg class="w-28 h-28 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
       </div>
     </div>
@@ -152,15 +172,19 @@ const jsonLdBreadcrumb = {
     <div class="section-padding">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">I Nostri Servizi</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Offriamo riparazioni professionali per tutti i tuoi dispositivi elettronici, con garanzia e ricambi certificati.</p>
+        <p class="text-gray-600 max-w-2xl mx-auto">Riparazioni professionali con ricambi certificati e garanzia fino a 12 mesi.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {services.map(service => (
-          <div class="card text-center group hover:-translate-y-1 transition-transform duration-300">
-            <div class="text-4xl mb-4">{service.icon}</div>
-            <h3 class="text-lg font-bold mb-2 text-giolab-dark">{service.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
-          </div>
+          <a href={service.link} class="card group hover:-translate-y-1 transition-transform duration-300 flex items-start gap-4 no-underline">
+            <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0 text-giolab-blue group-hover:bg-giolab-blue group-hover:text-white transition-colors">
+              <Fragment set:html={service.icon} />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-1 text-giolab-dark group-hover:text-giolab-blue transition-colors">{service.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{service.desc}</p>
+            </div>
+          </a>
         ))}
       </div>
       <div class="text-center mt-10">
@@ -173,19 +197,20 @@ const jsonLdBreadcrumb = {
   <section>
     <div class="section-padding">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Perché Scegliere Giolab</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">La qualità e la trasparenza sono i pilastri del nostro lavoro.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Perch&eacute; Scegliere Giolab</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
-          { icon: '⚡', title: 'Rapidità', desc: 'La maggior parte delle riparazioni viene completata in giornata.' },
-          { icon: '✅', title: 'Garanzia', desc: 'Ogni intervento è coperto da garanzia fino a 12 mesi.' },
-          { icon: '💎', title: 'Qualità', desc: 'Ricambi originali o certificati di altissima qualità.' },
-          { icon: '🤝', title: 'Trasparenza', desc: 'Preventivo gratuito e senza impegno. Nessun costo nascosto.' },
+          { icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`, title: 'Rapidit&agrave;', desc: 'La maggior parte degli interventi viene completata in giornata.' },
+          { icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`, title: 'Garanzia 12 Mesi', desc: 'Ogni riparazione è coperta da garanzia. Lavoriamo per durare.' },
+          { icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>`, title: 'Competenza', desc: 'Esperti in microsaldatura e diagnosi avanzata su scheda madre.' },
+          { icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`, title: 'Trasparenza', desc: 'Preventivo gratuito e senza impegno. Nessun costo nascosto.' },
         ].map(item => (
           <div class="text-center">
-            <div class="text-4xl mb-4">{item.icon}</div>
-            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-2xl text-giolab-blue mb-4">
+              <Fragment set:html={item.icon} />
+            </div>
+            <h3 class="text-lg font-bold mb-2" set:html={item.title} />
             <p class="text-sm text-gray-600">{item.desc}</p>
           </div>
         ))}
@@ -193,17 +218,40 @@ const jsonLdBreadcrumb = {
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Local SEO Section -->
   <section class="bg-giolab-gray">
+    <div class="section-padding">
+      <div class="max-w-4xl mx-auto md:flex md:items-center md:gap-12">
+        <div class="flex-1 mb-8 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Il Tuo Tecnico di Fiducia ad Assemini</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Giolab è il punto di riferimento per le riparazioni elettroniche ad Assemini, servendo con rapidità anche i comuni limitrofi come Decimomannu, Elmas, Uta e tutta la provincia di Cagliari.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Non siamo una catena: siamo un laboratorio indipendente dove il tuo dispositivo viene seguito dal tecnico dall'inizio alla fine. Questo significa diagnosi più accurate, tempi più rapidi e un rapporto diretto con chi esegue la riparazione.
+          </p>
+        </div>
+        <div class="flex-shrink-0">
+          <div class="bg-white rounded-2xl p-6 shadow-md text-center">
+            <div class="text-5xl font-extrabold text-giolab-blue mb-1">4.9</div>
+            <div class="flex items-center justify-center gap-1 text-giolab-orange mb-2">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-sm text-gray-500 font-medium">su Google Reviews</p>
+            <p class="text-xs text-gray-400 mt-1">150+ recensioni</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
     <div class="section-padding">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Cosa Dicono i Nostri Clienti</h2>
-        <div class="flex items-center justify-center gap-2 text-giolab-orange">
-          {Array.from({ length: 5 }).map(() => (
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          ))}
-          <span class="text-gray-600 font-semibold ml-2">4.9/5 su Google</span>
-        </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         {testimonials.map(t => (
@@ -222,11 +270,10 @@ const jsonLdBreadcrumb = {
   </section>
 
   <!-- FAQ -->
-  <section id="faq">
+  <section id="faq" class="bg-giolab-gray">
     <div class="section-padding">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Domande Frequenti</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Risposte alle domande più comuni sui nostri servizi di riparazione.</p>
       </div>
       <div class="max-w-3xl mx-auto space-y-4">
         {faqs.map(faq => (
@@ -245,15 +292,16 @@ const jsonLdBreadcrumb = {
   <!-- CTA Section -->
   <section class="bg-gradient-to-r from-giolab-blue to-giolab-blue-dark text-white">
     <div class="section-padding text-center">
-      <h2 class="text-3xl md:text-4xl font-bold !text-white mb-4">Hai bisogno di una riparazione?</h2>
-      <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Contattaci per un preventivo gratuito e senza impegno. Riparazioni rapide e garantite.</p>
+      <h2 class="text-3xl md:text-4xl font-bold !text-white mb-4">Hai un dispositivo da riparare?</h2>
+      <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">Contattaci per un preventivo gratuito. Diagnosi immediata, nessun impegno.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contatti" class="btn-primary text-lg">Richiedi Preventivo</a>
+        <a href="/contatti" class="btn-primary text-lg">Richiedi un Preventivo</a>
         <a href="https://wa.me/393406970686" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-lg">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <Fragment set:html={whatsappSvg} />
           Scrivici su WhatsApp
         </a>
       </div>
     </div>
   </section>
+
 </MainLayout>

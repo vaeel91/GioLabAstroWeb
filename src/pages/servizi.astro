@@ -5,23 +5,23 @@ const categories = [
   {
     id: 'iphone',
     title: 'Riparazione iPhone',
-    desc: 'Siamo specializzati nella riparazione di tutti i modelli iPhone, dai più recenti ai classici.',
+    desc: 'Tutti i modelli, dai più recenti ai classici. Interventi rapidi con ricambi certificati e garanzia fino a 12 mesi.',
     services: [
       'Sostituzione schermo e display',
       'Sostituzione batteria',
       'Riparazione connettore di ricarica',
       'Sostituzione fotocamera anteriore e posteriore',
-      'Riparazione tasto home e Face ID',
+      'Riparazione Face ID e sensori',
       'Sostituzione vetro posteriore',
       'Riparazione problemi audio (speaker e microfono)',
       'Recupero dati',
     ],
-    icon: '📱',
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
   },
   {
     id: 'samsung',
     title: 'Riparazione Samsung',
-    desc: 'Interventi su tutta la gamma Samsung Galaxy, dalla serie S alla serie A, Note e Z Fold/Flip.',
+    desc: 'Interventi su tutta la gamma Galaxy: serie S, A, Note e pieghevoli Z Fold/Flip. Display AMOLED e componenti originali.',
     services: [
       'Sostituzione schermo AMOLED',
       'Sostituzione batteria',
@@ -31,12 +31,12 @@ const categories = [
       'Sostituzione vetro posteriore',
       'Riparazione software e aggiornamenti',
     ],
-    icon: '📲',
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
   },
   {
     id: 'tablet',
     title: 'Riparazione Tablet',
-    desc: 'iPad, Samsung Galaxy Tab e tablet di tutte le marche. Interventi professionali e rapidi.',
+    desc: 'iPad, Samsung Galaxy Tab e tablet di ogni marca. Interventi professionali con tempi rapidi.',
     services: [
       'Sostituzione schermo e digitizer',
       'Sostituzione batteria',
@@ -45,12 +45,26 @@ const categories = [
       'Riparazione problemi Wi-Fi e Bluetooth',
       'Aggiornamento software e ripristino',
     ],
-    icon: '📟',
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M9 21h6a3 3 0 003-3V6a3 3 0 00-3-3H9a3 3 0 00-3 3v12a3 3 0 003 3z"/></svg>`,
+  },
+  {
+    id: 'microsaldatura',
+    title: 'Microsaldatura & Scheda Madre',
+    desc: 'Risolviamo problemi complessi su scheda madre che altri centri non gestiscono. Diagnosi accurata con strumentazione professionale e riparazioni di precisione.',
+    services: [
+      'Diagnosi avanzata con microscopio e multimetro',
+      'Microsaldatura componenti BGA e SMD',
+      'Riparazione circuiti di ricarica',
+      'Riparazione circuiti audio e backlight',
+      'Recupero dati da schede danneggiate',
+      'Riparazione danni da liquido con bagno a ultrasuoni',
+    ],
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>`,
   },
   {
     id: 'pc',
-    title: 'Riparazione PC & Mac',
-    desc: 'Notebook e desktop, Windows e macOS. Riparazioni hardware e software complete.',
+    title: 'PC & Mac',
+    desc: 'Assistenza hardware e software per notebook e desktop. Upgrade, pulizia interna e risoluzione blocchi.',
     services: [
       'Sostituzione schermo laptop',
       'Upgrade SSD e RAM',
@@ -61,36 +75,22 @@ const categories = [
       'Riparazione scheda madre',
       'Pulizia interna e sostituzione pasta termica',
     ],
-    icon: '💻',
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
   },
   {
     id: 'console',
     title: 'Riparazione Console',
-    desc: 'PlayStation, Xbox e Nintendo Switch. Torniamo a farti giocare!',
+    desc: 'PlayStation, Xbox e Nintendo Switch. Torniamo a farti giocare.',
     services: [
       'Sostituzione lettore ottico',
-      'Riparazione HDMI',
+      'Riparazione porta HDMI',
       'Sostituzione pasta termica e pulizia',
-      'Riparazione controller e Joy-Con',
+      'Riparazione controller e Joy-Con drift',
       'Sostituzione hard disk / SSD',
       'Riparazione alimentatore',
       'Risoluzione errori software',
     ],
-    icon: '🎮',
-  },
-  {
-    id: 'accessori',
-    title: 'Accessori & Protezioni',
-    desc: 'Pellicole, cover e accessori per proteggere al meglio il tuo dispositivo.',
-    services: [
-      'Pellicole in vetro temperato',
-      'Pellicole idrogel',
-      'Cover e custodie per tutti i modelli',
-      'Caricatori e cavi certificati',
-      'Auricolari e accessori audio',
-      'Power bank e batterie esterne',
-    ],
-    icon: '🛡️',
+    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
   },
 ];
 
@@ -113,16 +113,18 @@ const jsonLdServices = categories.map(cat => ({
     name: 'Giolab Riparazioni',
     '@id': 'https://giolabriparazioni.it/#business',
   },
-  areaServed: {
-    '@type': 'City',
-    name: 'Assemini',
-  },
+  areaServed: [
+    { '@type': 'City', name: 'Assemini' },
+    { '@type': 'City', name: 'Cagliari' },
+    { '@type': 'City', name: 'Decimomannu' },
+    { '@type': 'City', name: 'Elmas' },
+  ],
 }));
 ---
 
 <MainLayout
-  title="Servizi di Riparazione"
-  description="Scopri tutti i servizi di riparazione Giolab: iPhone, Samsung, tablet, PC, Mac e console. Interventi rapidi e garantiti ad Assemini."
+  title="Servizi Riparazione Smartphone, PC e Console | Giolab Assemini"
+  description="Riparazione iPhone, Samsung, tablet, PC, Mac e console ad Assemini. Microsaldatura scheda madre, diagnosi avanzata e garanzia 12 mesi. Preventivi gratuiti."
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
@@ -139,8 +141,8 @@ const jsonLdServices = categories.map(cat => ({
         <span class="mx-2">/</span>
         <span class="text-white">Servizi</span>
       </nav>
-      <h1 class="text-4xl md:text-5xl font-extrabold !text-white mb-4">I Nostri Servizi</h1>
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">Riparazioni professionali per smartphone, tablet, computer e console. Qualità garantita, prezzi onesti.</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold !text-white mb-4">I Nostri Servizi di Riparazione</h1>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">Dalla sostituzione dello schermo alla microsaldatura su scheda madre. Interventi professionali con garanzia fino a 12 mesi.</p>
     </div>
   </section>
 
@@ -152,7 +154,9 @@ const jsonLdServices = categories.map(cat => ({
           <div class:list={['flex flex-col lg:flex-row gap-8 items-start', i % 2 !== 0 && 'lg:flex-row-reverse']}>
             <div class="flex-1">
               <div class="flex items-center gap-3 mb-4">
-                <span class="text-4xl">{cat.icon}</span>
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-giolab-blue flex-shrink-0">
+                  <Fragment set:html={cat.icon} />
+                </div>
                 <h2 class="text-2xl md:text-3xl font-bold">{cat.title}</h2>
               </div>
               <p class="text-gray-600 mb-6">{cat.desc}</p>
@@ -166,9 +170,9 @@ const jsonLdServices = categories.map(cat => ({
               </ul>
               <a href="/contatti" class="btn-primary mt-6">Richiedi Preventivo</a>
             </div>
-            <div class="flex-1 w-full lg:max-w-sm">
-              <div class="bg-giolab-gray rounded-2xl p-8 flex items-center justify-center aspect-square max-w-xs mx-auto">
-                <span class="text-8xl">{cat.icon}</span>
+            <div class="flex-1 w-full lg:max-w-sm hidden lg:block">
+              <div class="bg-giolab-gray rounded-2xl p-8 flex items-center justify-center aspect-square max-w-xs mx-auto text-giolab-blue/20">
+                <Fragment set:html={cat.icon.replace('w-10 h-10', 'w-32 h-32')} />
               </div>
             </div>
           </div>
@@ -182,8 +186,11 @@ const jsonLdServices = categories.map(cat => ({
   <section class="bg-gradient-to-r from-giolab-blue to-giolab-blue-dark text-white">
     <div class="section-padding text-center">
       <h2 class="text-3xl md:text-4xl font-bold !text-white mb-4">Non trovi il servizio che cerchi?</h2>
-      <p class="text-blue-100 text-lg mb-8 max-w-xl mx-auto">Contattaci e descrivici il problema. Troveremo la soluzione giusta per te.</p>
-      <a href="https://wa.me/393406970686" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-lg">Scrivici su WhatsApp</a>
+      <p class="text-blue-100 text-lg mb-8 max-w-xl mx-auto">Descrivici il problema. Troveremo la soluzione giusta per te.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contatti" class="btn-primary text-lg">Richiedi un Preventivo</a>
+        <a href="https://wa.me/393406970686" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-lg">Scrivici su WhatsApp</a>
+      </div>
     </div>
   </section>
 </MainLayout>
