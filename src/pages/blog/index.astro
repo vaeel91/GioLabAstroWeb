@@ -7,6 +7,10 @@ const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueO
 
 const categories = [...new Set(posts.map(p => p.data.category))];
 
+function categorySlug(cat: string) {
+  return cat.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'e');
+}
+
 const jsonLdBreadcrumb = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -44,7 +48,7 @@ const jsonLdBreadcrumb = {
       <div class="max-w-7xl mx-auto px-4 py-4 flex gap-2 overflow-x-auto">
         <a href="/blog" class="px-4 py-2 rounded-full text-sm font-medium bg-giolab-blue text-white whitespace-nowrap">Tutti</a>
         {categories.map(cat => (
-          <span class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors whitespace-nowrap cursor-pointer">{cat}</span>
+          <a href={`/blog/categoria/${categorySlug(cat)}`} class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors whitespace-nowrap">{cat}</a>
         ))}
       </div>
     </section>
@@ -64,7 +68,7 @@ const jsonLdBreadcrumb = {
           {posts.map(post => (
             <article class="card group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
               <div class="bg-giolab-gray rounded-lg h-48 flex items-center justify-center mb-4 overflow-hidden">
-                <span class="text-5xl">📄</span>
+                <svg class="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </div>
               <div class="flex items-center gap-3 mb-3">
                 <span class="text-xs font-semibold bg-blue-50 text-giolab-blue px-3 py-1 rounded-full">{post.data.category}</span>
