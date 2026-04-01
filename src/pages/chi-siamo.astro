@@ -1,0 +1,118 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+
+const jsonLdBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://giolabriparazioni.it/' },
+    { '@type': 'ListItem', position: 2, name: 'Chi Siamo', item: 'https://giolabriparazioni.it/chi-siamo' },
+  ],
+};
+
+const milestones = [
+  { year: '2015', title: 'Gli Inizi', desc: 'Stefano Giordano inizia a riparare dispositivi elettronici per passione, aiutando amici e conoscenti.' },
+  { year: '2018', title: 'Nasce Giolab', desc: 'La passione diventa professione. Apre il primo laboratorio ad Assemini, in provincia di Cagliari.' },
+  { year: '2020', title: 'Crescita e Specializzazione', desc: 'Giolab si specializza nelle micro-saldature e riparazioni di schede madri, ampliando la gamma di servizi.' },
+  { year: '2023', title: 'Centro di Riferimento', desc: 'Con oltre 150 recensioni a 5 stelle su Google, Giolab diventa il punto di riferimento per le riparazioni nell\'area metropolitana di Cagliari.' },
+];
+---
+
+<MainLayout
+  title="Chi Siamo"
+  description="Scopri la storia di Giolab Riparazioni e di Stefano Giordano. Dal 2018 ripariamo smartphone, tablet e PC ad Assemini con passione e professionalità."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-giolab-blue to-giolab-blue-dark text-white">
+    <div class="section-padding text-center">
+      <nav class="text-sm text-blue-200 mb-6" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white">Chi Siamo</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-extrabold !text-white mb-4">Chi Siamo</h1>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto">La passione per la tecnologia e la voglia di risolvere problemi: ecco cosa ci guida ogni giorno.</p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section>
+    <div class="section-padding">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-10 items-center mb-16">
+          <div class="w-48 h-48 bg-giolab-gray rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="text-7xl">👨‍🔧</span>
+          </div>
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Stefano Giordano</h2>
+            <p class="text-lg text-gray-500 font-medium mb-3">Fondatore & Tecnico Specializzato</p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Tutto è nato dalla curiosità di smontare e capire come funzionano i dispositivi elettronici. Quella curiosità si è trasformata in una competenza tecnica che oggi mi permette di risolvere anche i problemi più complessi, dalle micro-saldature sulle schede madri alla sostituzione dei componenti più delicati.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              In Giolab ogni dispositivo viene trattato con la massima cura, come se fosse il mio. Il mio obiettivo è offrire un servizio onesto, trasparente e di altissima qualità a un prezzo giusto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div class="bg-giolab-gray rounded-2xl p-8 md:p-12 mb-16">
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">La Nostra Filosofia</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="text-4xl mb-4">🎯</div>
+              <h3 class="font-bold text-lg mb-2">Precisione</h3>
+              <p class="text-sm text-gray-600">Ogni riparazione è eseguita con strumenti professionali e massima attenzione ai dettagli.</p>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl mb-4">💬</div>
+              <h3 class="font-bold text-lg mb-2">Trasparenza</h3>
+              <p class="text-sm text-gray-600">Preventivo gratuito e comunicazione chiara. Sai sempre cosa facciamo e quanto costerà.</p>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl mb-4">♻️</div>
+              <h3 class="font-bold text-lg mb-2">Sostenibilità</h3>
+              <p class="text-sm text-gray-600">Riparare è meglio che buttare. Allunghiamo la vita ai tuoi dispositivi riducendo i rifiuti elettronici.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <h2 class="text-2xl md:text-3xl font-bold mb-10 text-center">La Nostra Storia</h2>
+        <div class="relative">
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-giolab-blue/20 -translate-x-1/2"></div>
+          <div class="space-y-12">
+            {milestones.map((m, i) => (
+              <div class:list={['relative flex flex-col md:flex-row gap-4 md:gap-8', i % 2 !== 0 && 'md:flex-row-reverse']}>
+                <div class="md:w-1/2 flex md:justify-end">
+                  <div class:list={['bg-white border border-gray-200 rounded-xl p-6 max-w-md shadow-sm', i % 2 !== 0 ? 'md:mr-auto' : 'md:ml-auto']}>
+                    <span class="inline-block bg-giolab-blue text-white text-sm font-bold px-3 py-1 rounded-full mb-3">{m.year}</span>
+                    <h3 class="font-bold text-lg mb-2">{m.title}</h3>
+                    <p class="text-sm text-gray-600">{m.desc}</p>
+                  </div>
+                </div>
+                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-giolab-blue rounded-full -translate-x-1/2 mt-6 border-4 border-white"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-giolab-blue to-giolab-blue-dark text-white">
+    <div class="section-padding text-center">
+      <h2 class="text-3xl md:text-4xl font-bold !text-white mb-4">Vieni a trovarci in laboratorio</h2>
+      <p class="text-blue-100 text-lg mb-8">Via Cagliari 59, 09032 Assemini (CA)</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contatti" class="btn-primary text-lg">Contattaci</a>
+        <a href="https://wa.me/393420045977" target="_blank" rel="noopener noreferrer" class="btn-whatsapp text-lg">Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

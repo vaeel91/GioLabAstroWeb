@@ -1,0 +1,110 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const jsonLdArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updated || post.data.date).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Stefano Giordano',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Giolab Riparazioni',
+    url: 'https://giolabriparazioni.it',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://giolabriparazioni.it/blog/${post.id}`,
+  },
+};
+
+const jsonLdBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://giolabriparazioni.it/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://giolabriparazioni.it/blog' },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: `https://giolabriparazioni.it/blog/${post.id}` },
+  ],
+};
+---
+
+<MainLayout
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  publishedDate={post.data.date.toISOString()}
+  modifiedDate={(post.data.updated || post.data.date).toISOString()}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdArticle)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
+  </Fragment>
+
+  <article>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-giolab-blue to-giolab-blue-dark text-white">
+      <div class="section-padding text-center max-w-4xl mx-auto">
+        <nav class="text-sm text-blue-200 mb-6" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/blog" class="hover:text-white">Blog</a>
+          <span class="mx-2">/</span>
+          <span class="text-white">{post.data.title}</span>
+        </nav>
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span class="text-xs font-semibold bg-white/20 px-3 py-1 rounded-full">{post.data.category}</span>
+          {post.data.readingTime && (
+            <span class="text-xs text-blue-200">{post.data.readingTime}</span>
+          )}
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold !text-white mb-4">{post.data.title}</h1>
+        <p class="text-blue-100 text-lg">{post.data.description}</p>
+        <div class="mt-6 text-sm text-blue-200">
+          <span>Di <strong class="text-white">Stefano Giordano</strong></span>
+          <span class="mx-2">·</span>
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section>
+      <div class="max-w-3xl mx-auto px-4 py-12 md:py-16">
+        <div class="prose prose-lg prose-gray max-w-none prose-headings:text-giolab-dark prose-a:text-giolab-blue prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to blog -->
+    <section class="border-t border-gray-200">
+      <div class="max-w-3xl mx-auto px-4 py-8 flex justify-between items-center">
+        <a href="/blog" class="text-giolab-blue font-semibold hover:underline flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Torna al Blog
+        </a>
+        <a href="/contatti" class="btn-primary text-sm">Richiedi Preventivo</a>
+      </div>
+    </section>
+  </article>
+</MainLayout>
